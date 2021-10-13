@@ -125,4 +125,12 @@ void APanelRender::test()
 	FString str;
 	printRange(simpleDgt);
 
+	for (size_t i = 0; i < simpleDgt->size(); i++) {
+		FVector f_vec = LinkEnd;
+		f_vec.X = f_vec.X + simpleDgt->at(i) * cos(15);
+		DrawDebugPoint(GetWorld(), f_vec, 10, FColor(52, 220, 239), true);
+
+	}
+
+
 }
