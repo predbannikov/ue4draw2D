@@ -120,15 +120,20 @@ void APanelRender::test()
 
 	DrawDebugPoint(GetWorld(), LinkEnd, 10, FColor(52, 220, 239), true);
 
-	range_t *range = createRange(0, 100);
+	range_t *range = createRange(0, 1000);
 	range_t *simpleDgt = createSimpleDigit(range);
 	FString str;
 	printRange(simpleDgt);
 
+	const int cangle = 10;
+	int angle = 0;
 	for (size_t i = 0; i < simpleDgt->size(); i++) {
+		angle += cangle;
 		FVector f_vec = LinkEnd;
-		f_vec.X = f_vec.X + simpleDgt->at(i) * cos(15);
-		DrawDebugPoint(GetWorld(), f_vec, 10, FColor(52, 220, 239), true);
+		f_vec.Y = f_vec.Y + simpleDgt->at(i) * cos(angle) ;
+		f_vec.Z = f_vec.Z + simpleDgt->at(i) * sin(angle) ;
+
+		DrawDebugPoint(GetWorld(), f_vec, 7, FColor(52, 220, 239), true, 0.01);
 
 	}
 
